@@ -58,7 +58,7 @@ class WidgetStatNumber extends StatelessWidget {
             ).paddingSymmetric(horizontal: 10),
           ),
         ],
-      ).marginOnly(bottom: 6);
+      ).marginOnly(bottom: 20);
     }).toList();
   }
 

@@ -94,25 +94,19 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
                             Tab(text: 'Moves'),
                           ],
                         ),
-                        controller.isLoading
-                            ? CircularProgressIndicator()
-                            : Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 10,
-                                    right: 10,
-                                    left: 10,
-                                  ),
-                                  child: TabBarView(
-                                    children: [
-                                      _about(),
-                                      _stats(),
-                                      _evolution(),
-                                      _about(),
-                                    ],
-                                  ),
-                                ),
-                              ),
+                        if (controller.isLoading)
+                          const Center(child: CircularProgressIndicator())
+                        else
+                          Expanded(
+                            child: TabBarView(
+                              children: [
+                                _about(),
+                                _stats(),
+                                _evolution(),
+                                _moves(),
+                              ],
+                            ),
+                          ),
                       ],
                     ),
                   );
@@ -126,27 +120,33 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
   }
 
   Widget _about() {
-    return Column(
-      children: [
-        WidgetStatItem(name: 'Species', sub: controller.pokemon.species.name),
-        WidgetStatItem(
-          name: 'Height',
-          sub: controller.pokemon.height.toString(),
-        ),
-        WidgetStatItem(
-          name: 'Weight',
-          sub: controller.pokemon.weight.toString(),
-        ),
-        WidgetStatItem(
-          name: 'Abilities',
-          sub: controller.abilities,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Column(
+        children: [
+          WidgetStatItem(name: 'Species', sub: controller.pokemon.species.name),
+          WidgetStatItem(
+            name: 'Height',
+            sub: controller.pokemon.height.toString(),
+          ),
+          WidgetStatItem(
+            name: 'Weight',
+            sub: controller.pokemon.weight.toString(),
+          ),
+          WidgetStatItem(
+            name: 'Abilities',
+            sub: controller.abilities,
+          ),
+        ],
+      ),
     );
   }
 
   Widget _stats() {
-    return WidgetStatNumber(stats: controller.pokemon.stats);
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: WidgetStatNumber(stats: controller.pokemon.stats),
+    );
   }
 
   Widget _evolution() {
@@ -156,6 +156,7 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
     final threeID = three.first.species.url.split('/');
 
     return SingleChildScrollView(
+      padding: const EdgeInsets.all(10),
       child: Column(
         children: [
           WidgetEvolutionItem(
@@ -177,7 +178,7 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
     );
   }
 
-  Widget _movies() {}
+  Widget _moves() {}
 }
 
 class WidgetEvolutionItem extends StatelessWidget {
@@ -202,7 +203,7 @@ class WidgetEvolutionItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        _buildItem(id,name),
+        _buildItem(id, name),
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -213,7 +214,7 @@ class WidgetEvolutionItem extends StatelessWidget {
             ),
           ],
         ),
-        _buildItem(secondID,secondName),
+        _buildItem(secondID, secondName),
       ],
     ).marginOnly(bottom: 40);
   }
@@ -230,7 +231,7 @@ class WidgetEvolutionItem extends StatelessWidget {
           ),
           child: CachedNetworkImage(
             imageUrl:
-            'https://static.pokemonpets.com/images/monsters-images-300-300/$id-$name.png',
+                'https://static.pokemonpets.com/images/monsters-images-300-300/$id-$name.png',
             height: 100,
             width: 100,
           ),
