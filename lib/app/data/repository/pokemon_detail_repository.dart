@@ -15,4 +15,20 @@ class PokemonDetailRepository {
     }
     return null;
   }
+
+  Future<Evolution> getEvolution(int id) async {
+    final rp = await provider.getEvolution(id);
+    if (rp.isOk) {
+      return Evolution.fromJson(rp.body);
+    }
+    return null;
+  }
+
+  Future getSpecies(int id) async {
+    final rp = await provider.getSpecies(id);
+    if (rp.isOk) {
+      return PokemonSpecies.fromJson(rp.body);
+    }
+    return null;
+  }
 }
