@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pokedex/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
 import '../../widgets/widgets.dart';
@@ -33,6 +34,10 @@ class PokemonPage extends GetWidget<PokemonController> {
                   id: item.id,
                   name: item.name,
                   types: item.types,
+                  onTap: () => Get.toNamed(
+                    AppRoutes.pokemonDetail,
+                    arguments: {'detail': item},
+                  ),
                 );
               },
             ).marginOnly(top: 10);

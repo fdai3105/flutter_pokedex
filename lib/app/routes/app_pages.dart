@@ -14,17 +14,17 @@ class AppPages {
 
   static final pages = [
     GetPage(
-      name: Routes.dashboard,
+      name: AppRoutes.dashboard,
       page: () => DashboardPage(),
       binding: DashboardBinding(),
     ),
     GetPage(
-      name: Routes.pokemon,
+      name: AppRoutes.pokemon,
       page: () => PokemonPage(),
       binding: PokemonBinding(),
     ),
     GetPage(
-      name: Routes.pokemonDetail,
+      name: AppRoutes.pokemonDetail,
       page: () => PokemonDetailPage(),
       binding: PokemonDetailBinding(),
     ),

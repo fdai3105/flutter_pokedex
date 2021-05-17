@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'app/modules/pokemon_module/pokemon.dart';
+import 'app/routes/app_pages.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      getPages: AppPages.pages,
       initialBinding: PokemonBinding(),
       home: PokemonPage(),
     );
