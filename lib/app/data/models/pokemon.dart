@@ -34,7 +34,8 @@ class Pokemon {
     count: json["count"],
     next: json["next"],
     previous: json["previous"],
-    results: List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+    results:
+    List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {

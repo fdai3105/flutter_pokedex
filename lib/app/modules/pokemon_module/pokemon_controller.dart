@@ -1,8 +1,7 @@
-import 'package:flutter_pokedex/app/data/models/pokemon_detail.dart';
-import 'package:flutter_pokedex/app/data/repository/pokemon_detail_repository.dart';
 import 'package:get/get.dart';
 
-import '../../data/repository/pokemon_repository.dart';
+import '../../data/models/models.dart';
+import '../../data/repository/repositories.dart';
 
 class PokemonController extends GetxController {
   final PokemonRepository repository;
@@ -12,7 +11,7 @@ class PokemonController extends GetxController {
 
   final _isLoading = true.obs;
   final _offset = 0.obs;
-  final _pokemons = <PokemonDetail>[].obs;
+  final _pokemon = <PokemonDetail>[].obs;
 
   bool get isLoading => _isLoading.value;
 
@@ -26,10 +25,10 @@ class PokemonController extends GetxController {
     _offset.value = value;
   }
 
-  List<PokemonDetail> get pokemon => _pokemons.value;
+  List<PokemonDetail> get pokemon => _pokemon.value;
 
   set pokemon(List<PokemonDetail> value) {
-    _pokemons.value = value;
+    _pokemon.value = value;
   }
 
   @override

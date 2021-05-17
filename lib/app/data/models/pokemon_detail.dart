@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final pokemonDetail = pokemonDetailFromJson(jsonString);
-
 import 'dart:convert';
 
 class PokemonDetail {
@@ -527,26 +523,26 @@ class Sprites {
   });
 
   final String backDefault;
-  final dynamic backFemale;
+  final String backFemale;
   final String backShiny;
-  final dynamic backShinyFemale;
+  final String backShinyFemale;
   final String frontDefault;
-  final dynamic frontFemale;
+  final String frontFemale;
   final String frontShiny;
-  final dynamic frontShinyFemale;
+  final String frontShinyFemale;
   final Other other;
   final Versions versions;
   final Sprites animated;
 
   Sprites copyWith({
     String backDefault,
-    dynamic backFemale,
+    String backFemale,
     String backShiny,
-    dynamic backShinyFemale,
+    String backShinyFemale,
     String frontDefault,
-    dynamic frontFemale,
+    String frontFemale,
     String frontShiny,
-    dynamic frontShinyFemale,
+    String frontShinyFemale,
     Other other,
     Versions versions,
     Sprites animated,
@@ -592,9 +588,9 @@ class Sprites {
     "front_female": frontFemale,
     "front_shiny": frontShiny,
     "front_shiny_female": frontShinyFemale,
-    "other": other == null ? null : other.toJson(),
-    "versions": versions == null ? null : versions.toJson(),
-    "animated": animated == null ? null : animated.toJson(),
+    'other': other?.toJson(),
+    'versions': versions?.toJson(),
+    'animated': animated?.toJson(),
   };
 }
 
@@ -874,15 +870,15 @@ class OmegarubyAlphasapphire {
   });
 
   final String frontDefault;
-  final dynamic frontFemale;
+  final String frontFemale;
   final String frontShiny;
   final dynamic frontShinyFemale;
 
   OmegarubyAlphasapphire copyWith({
     String frontDefault,
-    dynamic frontFemale,
+    String frontFemale,
     String frontShiny,
-    dynamic frontShinyFemale,
+    String frontShinyFemale,
   }) =>
       OmegarubyAlphasapphire(
         frontDefault: frontDefault ?? this.frontDefault,
@@ -950,11 +946,11 @@ class DreamWorld {
   });
 
   final String frontDefault;
-  final dynamic frontFemale;
+  final String frontFemale;
 
   DreamWorld copyWith({
     String frontDefault,
-    dynamic frontFemale,
+    String frontFemale,
   }) =>
       DreamWorld(
         frontDefault: frontDefault ?? this.frontDefault,

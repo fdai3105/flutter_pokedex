@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_pokedex/app/data/models/models.dart';
-import 'package:flutter_pokedex/app/data/provider/pokemon_provider.dart';
+import 'package:flutter/material.dart';
+
+import '../models/models.dart';
+import '../provider/providers.dart';
 
 class PokemonRepository {
   final PokemonProvider provider;

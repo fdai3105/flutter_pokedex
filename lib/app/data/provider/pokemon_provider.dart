@@ -1,5 +1,6 @@
-import '../../utils/strings.dart';
 import 'package:get/get_connect/connect.dart';
+
+import '../../utils/strings.dart';
 
 class PokemonProvider extends GetConnect {
   Future<Response> getPokemon(int offset, int limit) => get(

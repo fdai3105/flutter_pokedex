@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pokedex/app/modules/pokemon_module/pokemon.dart';
 import 'package:get/get.dart';
-import 'app/modules/dashboard_module/dashboard.dart';
+
+import 'app/modules/pokemon_module/pokemon.dart';
 
 void main() {
   runApp(MyApp());

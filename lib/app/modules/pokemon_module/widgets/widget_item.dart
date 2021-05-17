@@ -35,10 +35,10 @@ class WidgetItem extends StatelessWidget {
       child: Stack(
         children: [
           Positioned(
-            bottom: -70,
-            right: -140,
-            left: -50,
-            top: -50,
+            bottom: -50,
+            right: -120,
+            left: -30,
+            top: -30,
             child: _WidgetPokeBall(),
           ),
           Padding(
