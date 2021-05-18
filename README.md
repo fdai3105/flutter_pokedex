@@ -1,6 +1,10 @@
 # flutter_pokedex
 
-A new Flutter application.
+A new Flutter application use GetX.
+
+![home](https://raw.githubusercontent.com/ff3105/flutter_pokedex/master/Screenshot_1621341227.png)
+
+![detail](https://raw.githubusercontent.com/ff3105/flutter_pokedex/master/Screenshot_1621341233.png)
 
 ## Getting Started
 
