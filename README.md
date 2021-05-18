@@ -2,8 +2,8 @@
 
 A new Flutter application use GetX.
 
-![Uploading Screenshot_1621341227.png…](![Screenshot_1621341233](https://user-images.githubusercontent.com/43561662/118652041-5f224100-b810-11eb-8e9c-f74dd5f01de6.png)
-)
+![alt text](https://raw.githubusercontent.com/ff3105/flutter_pokedex/master/Screenshot_1621341227.png)
+![alt text]https://raw.githubusercontent.com/ff3105/flutter_pokedex/master/Screenshot_1621341233.png)
 
 ## Getting Started
 
