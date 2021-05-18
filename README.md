@@ -2,8 +2,9 @@
 
 A new Flutter application use GetX.
 
-![alt text](https://raw.githubusercontent.com/ff3105/flutter_pokedex/master/Screenshot_1621341227.png)
-![alt text]https://raw.githubusercontent.com/ff3105/flutter_pokedex/master/Screenshot_1621341233.png)
+![home](https://raw.githubusercontent.com/ff3105/flutter_pokedex/master/Screenshot_1621341227.png)
+
+![detail](https://raw.githubusercontent.com/ff3105/flutter_pokedex/master/Screenshot_1621341233.png)
 
 ## Getting Started
 
