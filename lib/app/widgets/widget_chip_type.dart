@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../data/models/models.dart';
 
 class WidgetChipType extends StatelessWidget {
@@ -17,15 +18,18 @@ class WidgetChipType extends StatelessWidget {
       direction: axis,
       children: types.map((e) {
         return Container(
-          margin: const EdgeInsets.only(bottom: 4,right: 4),
-          padding: const EdgeInsets.all(8),
+          margin: const EdgeInsets.only(bottom: 4, right: 4),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
           decoration: BoxDecoration(
             color: Colors.white24,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Text(
             e.type.name,
-            style: const TextStyle(color: Colors.white),
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+            ),
           ),
         );
       }).toList(),

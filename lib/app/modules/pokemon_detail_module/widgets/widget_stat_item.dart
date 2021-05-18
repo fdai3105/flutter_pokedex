@@ -32,11 +32,12 @@ class WidgetStatItem extends StatelessWidget {
             sub ?? '',
             style: const TextStyle(
               fontSize: 16,
+              color: Color.fromRGBO(54, 54, 54, 1),
               fontWeight: FontWeight.w600,
             ),
           ),
         ),
       ],
-    ).marginOnly(bottom: 6);
+    ).marginOnly(bottom: 20);
   }
 }

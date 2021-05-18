@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../data/models/models.dart';
 import '../../data/repository/repositories.dart';
 
-class PokemonDetailController extends GetxController {
+class PokemonDetailController extends GetxController with SingleGetTickerProviderMixin {
   final PokemonDetailRepository repository;
 
   PokemonDetailController({this.repository});
@@ -44,6 +44,8 @@ class PokemonDetailController extends GetxController {
   set species(PokemonSpecies value) {
     _species.value = value;
   }
+
+
 
   @override
   Future onInit() async {

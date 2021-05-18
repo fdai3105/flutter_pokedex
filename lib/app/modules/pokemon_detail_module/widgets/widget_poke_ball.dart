@@ -1,11 +1,13 @@
-part of 'widget_item.dart';
+import 'dart:math';
 
-class _WidgetPokeBall extends StatefulWidget {
+import 'package:flutter/material.dart';
+
+class WidgetPokeBall extends StatefulWidget {
   @override
-  __WidgetPokeBallState createState() => __WidgetPokeBallState();
+  _WidgetPokeBallState createState() => _WidgetPokeBallState();
 }
 
-class __WidgetPokeBallState extends State<_WidgetPokeBall>
+class _WidgetPokeBallState extends State<WidgetPokeBall>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
 
@@ -14,7 +16,7 @@ class __WidgetPokeBallState extends State<_WidgetPokeBall>
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 10),
-    )..stop();
+    )..repeat();
     super.initState();
   }
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pokedex/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
+import '../../routes/app_pages.dart';
 import '../../widgets/widgets.dart';
 import 'pokemon_controller.dart';
 import 'widgets/widget_item.dart';
@@ -11,7 +11,7 @@ class PokemonPage extends GetWidget<PokemonController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const WidgetAppBar(title: 'Pokemon'),
+      appBar: const WidgetAppBar(title: 'Pokedex'),
       body: SafeArea(
         child: GetX<PokemonController>(
           builder: (_) {

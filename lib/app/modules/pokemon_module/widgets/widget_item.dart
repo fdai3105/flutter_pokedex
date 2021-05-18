@@ -1,12 +1,10 @@
-import 'dart:math';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pokedex/app/utils/utlis.dart';
+import 'package:flutter_pokedex/app/widgets/widgets.dart';
+import 'package:get/get.dart';
 
 import '../../../data/models/pokemon_detail.dart';
-
-part 'widget_poke_ball.dart';
+import '../../../utils/utils';
 
 class WidgetItem extends StatelessWidget {
   final int id;
@@ -41,11 +39,14 @@ class WidgetItem extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: -50,
-              right: -120,
+              bottom: -30,
+              right: -110,
               left: -30,
               top: -30,
-              child: _WidgetPokeBall(),
+              child: Image.asset(
+                'assets/images/pokeball.png',
+                color: Colors.white24,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -58,7 +59,7 @@ class WidgetItem extends StatelessWidget {
                       children: [
                         const SizedBox(height: 10),
                         Text(
-                          name,
+                          name.capitalizeFirst,
                           softWrap: false,
                           style: const TextStyle(
                             color: Colors.white,
@@ -75,17 +76,10 @@ class WidgetItem extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          'https://static.pokemonpets.com/images/monsters-images-300-300/$id-$name.png',
-                      // imageUrl: 'https://pokeres.bastionbot.org/images/pokemon/$id.png',
-                      progressIndicatorBuilder: (context, url, progress) {
-                        return Center(
-                            child: CircularProgressIndicator(
-                                value: progress.progress));
-                      },
-                      height: 100,
+                    child: WidgetImagePokemon(
+                      id: id,
                       width: 100,
+                      height: 100,
                     ),
                   ),
                 ],
