@@ -59,7 +59,10 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
                       bottom: -110,
                       left: 0,
                       right: 0,
-                      child: WidgetPokeBall(),
+                      child: Hero(
+                        tag: 'ball_${controller.pokemon.id}',
+                        child: WidgetPokeBall(),
+                      ),
                     ),
                     Positioned(
                       top: -30,

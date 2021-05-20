@@ -42,9 +42,12 @@ class WidgetItem extends StatelessWidget {
               right: -110,
               left: -30,
               top: -30,
-              child: Image.asset(
-                'assets/images/pokeball.png',
-                color: Colors.white24,
+              child: Hero(
+                tag: 'ball_$id',
+                child: Image.asset(
+                  'assets/images/pokeball.png',
+                  color: Colors.white24,
+                ),
               ),
             ),
             Padding(

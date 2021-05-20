@@ -36,3 +36,13 @@ Color colorByType(String type) {
       break;
   }
 }
+
+Color colorByStat(int stat) {
+  if (stat <= 50) {
+    return Colors.red;
+  } else if (stat <= 100) {
+    return Colors.yellow;
+  } else {
+    return Colors.green;
+  }
+}

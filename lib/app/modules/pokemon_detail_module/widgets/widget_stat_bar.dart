@@ -15,7 +15,7 @@ class _WidgetStatBar extends StatelessWidget {
           Expanded(
             flex: 4,
             child: Text(
-              e.stat.name,
+              e.stat.name.replaceAll('-', ' ').capitalizeFirst,
               style: const TextStyle(
                 color: Colors.black54,
                 fontSize: 16,
@@ -33,7 +33,7 @@ class _WidgetStatBar extends StatelessWidget {
           ),
           Expanded(
             flex: 5,
-            child: _WidgetStatBarItem(stat: e.baseStat.toDouble())
+            child: _WidgetStatBarItem(stat: e.baseStat)
                 .paddingSymmetric(horizontal: 10),
           ),
         ],
@@ -48,7 +48,7 @@ class _WidgetStatBar extends StatelessWidget {
 }
 
 class _WidgetStatBarItem extends StatefulWidget {
-  final double stat;
+  final int stat;
 
   const _WidgetStatBarItem({
     Key key,
@@ -75,7 +75,7 @@ class _WidgetStatBarItemState extends State<_WidgetStatBarItem>
       parent: _controller,
     );
     _animation =
-        Tween<double>(begin: 0, end: widget.stat).animate(curvedAnimation);
+        Tween<double>(begin: 0, end: widget.stat.toDouble()).animate(curvedAnimation);
     _controller.forward();
     super.initState();
   }
@@ -101,11 +101,11 @@ class _WidgetStatBarItemState extends State<_WidgetStatBarItem>
           animation: _animation,
           builder: (context, _) {
             return FractionallySizedBox(
-              widthFactor: _animation.value / 100,
+              widthFactor: _animation.value / 120,
               child: Container(
                 height: 6,
                 decoration: BoxDecoration(
-                  color: widget.stat <= 50 ? Colors.red : Colors.green,
+                  color: colorByStat(widget.stat),
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
