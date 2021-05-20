@@ -1,10 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pokedex/app/widgets/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../data/models/pokemon_detail.dart';
-import '../../../utils/utils';
+import '../../../utils/utils.dart';
+import '../../../widgets/widgets.dart';
 
 class WidgetItem extends StatelessWidget {
   final int id;
@@ -76,10 +75,13 @@ class WidgetItem extends StatelessWidget {
                     ),
                   ),
                   Flexible(
-                    child: WidgetImagePokemon(
-                      id: id,
-                      width: 100,
-                      height: 100,
+                    child: Hero(
+                      tag: 'image_$id',
+                      child: WidgetImagePokemon(
+                        id: id,
+                        width: 100,
+                        height: 100,
+                      ),
                     ),
                   ),
                 ],

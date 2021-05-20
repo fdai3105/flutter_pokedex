@@ -33,18 +33,18 @@ class PokemonSpecies {
 
   final int baseHappiness;
   final int captureRate;
-  final Color color;
-  final List<Color> eggGroups;
+  final PokemonColor color;
+  final List<PokemonColor> eggGroups;
   final EvolutionChain evolutionChain;
-  final Color evolvesFromSpecies;
+  final PokemonColor evolvesFromSpecies;
   final List<FlavorTextEntry> flavorTextEntries;
   final List<dynamic> formDescriptions;
   final bool formsSwitchable;
   final int genderRate;
   final List<Genus> genera;
-  final Color generation;
-  final Color growthRate;
-  final Color habitat;
+  final PokemonColor generation;
+  final PokemonColor growthRate;
+  final PokemonColor habitat;
   final bool hasGenderDifferences;
   final int hatchCounter;
   final int id;
@@ -56,24 +56,24 @@ class PokemonSpecies {
   final int order;
   final List<PalParkEncounter> palParkEncounters;
   final List<PokedexNumber> pokedexNumbers;
-  final Color shape;
+  final PokemonColor shape;
   final List<Variety> varieties;
 
   PokemonSpecies copyWith({
     int baseHappiness,
     int captureRate,
-    Color color,
-    List<Color> eggGroups,
+    PokemonColor color,
+    List<PokemonColor> eggGroups,
     EvolutionChain evolutionChain,
-    Color evolvesFromSpecies,
+    PokemonColor evolvesFromSpecies,
     List<FlavorTextEntry> flavorTextEntries,
     List<dynamic> formDescriptions,
     bool formsSwitchable,
     int genderRate,
     List<Genus> genera,
-    Color generation,
-    Color growthRate,
-    Color habitat,
+    PokemonColor generation,
+    PokemonColor growthRate,
+    PokemonColor habitat,
     bool hasGenderDifferences,
     int hatchCounter,
     int id,
@@ -85,7 +85,7 @@ class PokemonSpecies {
     int order,
     List<PalParkEncounter> palParkEncounters,
     List<PokedexNumber> pokedexNumbers,
-    Color shape,
+    PokemonColor shape,
     List<Variety> varieties,
   }) =>
       PokemonSpecies(
@@ -126,13 +126,13 @@ class PokemonSpecies {
   factory PokemonSpecies.fromJson(Map<String, dynamic> json) => PokemonSpecies(
         baseHappiness: json["base_happiness"],
         captureRate: json["capture_rate"],
-        color: Color.fromJson(json["color"]),
+        color: PokemonColor.fromJson(json["color"]),
         eggGroups:
-            List<Color>.from(json["egg_groups"].map((x) => Color.fromJson(x))),
+            List<PokemonColor>.from(json["egg_groups"].map((x) => PokemonColor.fromJson(x))),
         evolutionChain: EvolutionChain.fromJson(json["evolution_chain"]),
         evolvesFromSpecies: json["evolves_from_species"] == null
             ? null
-            : Color.fromJson(json["evolves_from_species"]),
+            : PokemonColor.fromJson(json["evolves_from_species"]),
         flavorTextEntries: List<FlavorTextEntry>.from(
             json["flavor_text_entries"]
                 .map((x) => FlavorTextEntry.fromJson(x))),
@@ -141,9 +141,9 @@ class PokemonSpecies {
         formsSwitchable: json["forms_switchable"],
         genderRate: json["gender_rate"],
         genera: List<Genus>.from(json["genera"].map((x) => Genus.fromJson(x))),
-        generation: Color.fromJson(json["generation"]),
-        growthRate: Color.fromJson(json["growth_rate"]),
-        habitat: Color.fromJson(json["habitat"]),
+        generation: PokemonColor.fromJson(json["generation"]),
+        growthRate: PokemonColor.fromJson(json["growth_rate"]),
+        habitat: PokemonColor.fromJson(json["habitat"]),
         hasGenderDifferences: json["has_gender_differences"],
         hatchCounter: json["hatch_counter"],
         id: json["id"],
@@ -158,7 +158,7 @@ class PokemonSpecies {
                 .map((x) => PalParkEncounter.fromJson(x))),
         pokedexNumbers: List<PokedexNumber>.from(
             json["pokedex_numbers"].map((x) => PokedexNumber.fromJson(x))),
-        shape: Color.fromJson(json["shape"]),
+        shape: PokemonColor.fromJson(json["shape"]),
         varieties: List<Variety>.from(
             json["varieties"].map((x) => Variety.fromJson(x))),
       );
@@ -197,8 +197,8 @@ class PokemonSpecies {
       };
 }
 
-class Color {
-  Color({
+class PokemonColor {
+  PokemonColor({
     this.name,
     this.url,
   });
@@ -206,20 +206,20 @@ class Color {
   final String name;
   final String url;
 
-  Color copyWith({
+  PokemonColor copyWith({
     String name,
     String url,
   }) =>
-      Color(
+      PokemonColor(
         name: name ?? this.name,
         url: url ?? this.url,
       );
 
-  factory Color.fromRawJson(String str) => Color.fromJson(json.decode(str));
+  factory PokemonColor.fromRawJson(String str) => PokemonColor.fromJson(json.decode(str));
 
   String toRawJson() => json.encode(toJson());
 
-  factory Color.fromJson(Map<String, dynamic> json) => Color(
+  factory PokemonColor.fromJson(Map<String, dynamic> json) => PokemonColor(
         name: json["name"],
         url: json["url"],
       );
@@ -266,13 +266,13 @@ class FlavorTextEntry {
   });
 
   final String flavorText;
-  final Color language;
-  final Color version;
+  final PokemonColor language;
+  final PokemonColor version;
 
   FlavorTextEntry copyWith({
     String flavorText,
-    Color language,
-    Color version,
+    PokemonColor language,
+    PokemonColor version,
   }) =>
       FlavorTextEntry(
         flavorText: flavorText ?? this.flavorText,
@@ -288,8 +288,8 @@ class FlavorTextEntry {
   factory FlavorTextEntry.fromJson(Map<String, dynamic> json) =>
       FlavorTextEntry(
         flavorText: json["flavor_text"],
-        language: Color.fromJson(json["language"]),
-        version: Color.fromJson(json["version"]),
+        language: PokemonColor.fromJson(json["language"]),
+        version: PokemonColor.fromJson(json["version"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -306,11 +306,11 @@ class Genus {
   });
 
   final String genus;
-  final Color language;
+  final PokemonColor language;
 
   Genus copyWith({
     String genus,
-    Color language,
+    PokemonColor language,
   }) =>
       Genus(
         genus: genus ?? this.genus,
@@ -323,7 +323,7 @@ class Genus {
 
   factory Genus.fromJson(Map<String, dynamic> json) => Genus(
         genus: json["genus"],
-        language: Color.fromJson(json["language"]),
+        language: PokemonColor.fromJson(json["language"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -338,11 +338,11 @@ class Name {
     this.name,
   });
 
-  final Color language;
+  final PokemonColor language;
   final String name;
 
   Name copyWith({
-    Color language,
+    PokemonColor language,
     String name,
   }) =>
       Name(
@@ -355,7 +355,7 @@ class Name {
   String toRawJson() => json.encode(toJson());
 
   factory Name.fromJson(Map<String, dynamic> json) => Name(
-        language: Color.fromJson(json["language"]),
+        language: PokemonColor.fromJson(json["language"]),
         name: json["name"],
       );
 
@@ -372,12 +372,12 @@ class PalParkEncounter {
     this.rate,
   });
 
-  final Color area;
+  final PokemonColor area;
   final int baseScore;
   final int rate;
 
   PalParkEncounter copyWith({
-    Color area,
+    PokemonColor area,
     int baseScore,
     int rate,
   }) =>
@@ -394,7 +394,7 @@ class PalParkEncounter {
 
   factory PalParkEncounter.fromJson(Map<String, dynamic> json) =>
       PalParkEncounter(
-        area: Color.fromJson(json["area"]),
+        area: PokemonColor.fromJson(json["area"]),
         baseScore: json["base_score"],
         rate: json["rate"],
       );
@@ -413,11 +413,11 @@ class PokedexNumber {
   });
 
   final int entryNumber;
-  final Color pokedex;
+  final PokemonColor pokedex;
 
   PokedexNumber copyWith({
     int entryNumber,
-    Color pokedex,
+    PokemonColor pokedex,
   }) =>
       PokedexNumber(
         entryNumber: entryNumber ?? this.entryNumber,
@@ -431,7 +431,7 @@ class PokedexNumber {
 
   factory PokedexNumber.fromJson(Map<String, dynamic> json) => PokedexNumber(
         entryNumber: json["entry_number"],
-        pokedex: Color.fromJson(json["pokedex"]),
+        pokedex: PokemonColor.fromJson(json["pokedex"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -447,11 +447,11 @@ class Variety {
   });
 
   final bool isDefault;
-  final Color pokemon;
+  final PokemonColor pokemon;
 
   Variety copyWith({
     bool isDefault,
-    Color pokemon,
+    PokemonColor pokemon,
   }) =>
       Variety(
         isDefault: isDefault ?? this.isDefault,
@@ -464,7 +464,7 @@ class Variety {
 
   factory Variety.fromJson(Map<String, dynamic> json) => Variety(
         isDefault: json["is_default"],
-        pokemon: Color.fromJson(json["pokemon"]),
+        pokemon: PokemonColor.fromJson(json["pokemon"]),
       );
 
   Map<String, dynamic> toJson() => {

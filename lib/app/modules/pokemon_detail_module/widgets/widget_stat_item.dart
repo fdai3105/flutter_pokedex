@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+part of '../pokemon_detail_page.dart';
 
-class WidgetStatItem extends StatelessWidget {
-  const WidgetStatItem({
+class _WidgetStatItem extends StatelessWidget {
+  const _WidgetStatItem({
     Key key,
     @required this.name,
     @required this.sub,

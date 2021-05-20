@@ -1,10 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_pokedex/app/widgets/widgets.dart';
-import 'package:get/get.dart';
+part of '../pokemon_detail_page.dart';
 
-class WidgetEvolutionItem extends StatelessWidget {
-  const WidgetEvolutionItem({
+class _WidgetEvolutionItem extends StatelessWidget {
+  const _WidgetEvolutionItem({
     Key key,
     @required this.name,
     @required this.secondName,

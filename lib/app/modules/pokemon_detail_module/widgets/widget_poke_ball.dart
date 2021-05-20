@@ -1,6 +1,4 @@
-import 'dart:math';
-
-import 'package:flutter/material.dart';
+part of '../pokemon_detail_page.dart';
 
 class WidgetPokeBall extends StatefulWidget {
   @override

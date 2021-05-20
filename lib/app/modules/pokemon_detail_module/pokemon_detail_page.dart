@@ -1,10 +1,20 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../utils/utils';
+import '../../data/models/models.dart';
+import '../../utils/utils.dart';
 import '../../widgets/widgets.dart';
 import 'pokemon_detail.dart';
-import 'widgets/widgets.dart';
+
+part 'widgets/widget_evolution_item.dart';
+
+part 'widgets/widget_poke_ball.dart';
+
+part 'widgets/widget_stat_bar.dart';
+
+part 'widgets/widget_stat_item.dart';
 
 class PokemonDetailPage extends GetWidget<PokemonDetailController> {
   @override
@@ -51,6 +61,18 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
                       right: 0,
                       child: WidgetPokeBall(),
                     ),
+                    Positioned(
+                      top: -30,
+                      right: 30,
+                      child: RotatedBox(
+                        quarterTurns: 1,
+                        child: Image.asset(
+                          'assets/images/dotted.png',
+                          color: Colors.white24,
+                          height: 60,
+                        ),
+                      ),
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -90,12 +112,15 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
                         ),
                       ],
                     ),
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: WidgetImagePokemon(
-                        id: controller.pokemon.id,
-                        height: 200,
-                        width: 200,
+                    Hero(
+                      tag: 'image_${controller.pokemon.id}',
+                      child: Align(
+                        alignment: Alignment.bottomCenter,
+                        child: WidgetImagePokemon(
+                          id: controller.pokemon.id,
+                          height: 200,
+                          width: 200,
+                        ),
                       ),
                     ),
                   ],
@@ -152,19 +177,20 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
 
   Widget _about() {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          WidgetStatItem(name: 'Species', sub: controller.pokemon.species.name),
-          WidgetStatItem(
+          _WidgetStatItem(
+              name: 'Species', sub: controller.pokemon.species.name),
+          _WidgetStatItem(
             name: 'Height',
             sub: controller.pokemon.height.toString(),
           ),
-          WidgetStatItem(
+          _WidgetStatItem(
             name: 'Weight',
             sub: controller.pokemon.weight.toString(),
           ),
-          WidgetStatItem(
+          _WidgetStatItem(
             name: 'Abilities',
             sub: controller.abilities,
           ),
@@ -175,8 +201,8 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
 
   Widget _stats() {
     return Padding(
-      padding: const EdgeInsets.all(10),
-      child: WidgetStatNumber(stats: controller.pokemon.stats),
+      padding: const EdgeInsets.all(20),
+      child: _WidgetStatBar(stats: controller.pokemon.stats),
     );
   }
 
@@ -187,17 +213,17 @@ class PokemonDetailPage extends GetWidget<PokemonDetailController> {
     final threeID = three.first.species.url.split('/');
 
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(20),
       child: Column(
         children: [
-          WidgetEvolutionItem(
+          _WidgetEvolutionItem(
             name: controller.evolution.chain.species.name,
             id: int.parse(controller.evolution.chain.species.url.split('/')[6]),
             secondID: int.parse(secondID[secondID.length - 2]),
             secondName: second.first.species.name,
             level: second.first.evolutionDetails.first.minLevel,
           ),
-          WidgetEvolutionItem(
+          _WidgetEvolutionItem(
             name: second.first.species.name,
             id: int.parse(secondID[secondID.length - 2]),
             secondName: three.first.species.name,
